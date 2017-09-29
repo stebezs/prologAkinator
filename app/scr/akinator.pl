@@ -1,2 +1,2 @@
 
---akinator
+% akinator
