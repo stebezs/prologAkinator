@@ -1,7 +1,3 @@
-
-%akinator
-
-
 %Filtering by year
 year(Year):-year(_, Year,_,_,_,_,_).
 year_genre(Year,Genre):-year(_, Year,Genre,_,_,_,_).
