@@ -3,7 +3,7 @@ The representation of the game Akinator for the Prolog module
 
 ## Running the game
 1. Make sure that you have prolog-swi properly installed.
-The commands to install On Linux (eg Mint or other) are just below:
+The commands to install SWI Prolog on Ubuntu:
 
 ```
 sudo apt-get install software-properties-common
@@ -13,12 +13,11 @@ sudo apt-get install swi-prolog
 ```
 
 1. Go to  prologAkinator folder
-1. Go to app folder
+1. Go to 'src' folder
 1. Run the command below:
 
 ```
-swipl
+swipl akinator.pl
 ```
 
-1. Then enter the name of your file
-(eg Enter with:[friendNeighborhood, friendSchool] )
+1. Then, you can use ask_* to refine the results.
