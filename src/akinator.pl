@@ -5,7 +5,7 @@
 % movie(Name, Year, Genre, [Actors], Position)
 movie('Avatar', 2009, action, ['Sam Worthington', 'Zoe Saldana', 'Sigourney Weaver'], 1).
 movie('Titanic', 1997, drama, ['Leonardo DiCaprio', 'Kate Winslet', 'Billy Zane'], 2).
-movie('Star Wars: The Force Awakens', 2015, action, ['Harrison Ford', 'Mark Hamill', 'Carrie Fisher'], 3)
+movie('Star Wars: The Force Awakens', 2015, action, ['Harrison Ford', 'Mark Hamill', 'Carrie Fisher'], 3).
 movie('Jurassic World', 2015, action, ['Chris Pratt', 'Bryce Dallas Howard', '	Irrfan Khan'], 4).
 movie('The Avengers ', 2012, action, ['Robert Downey Jr.', 'Chris Evans', ' Scarlett Johansson'], 5).
 movie('Furious 7 ', 2009, action, ['Vin Diesel', 'Paul Walker', 'Jason Statham'], 6).
