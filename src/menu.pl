@@ -14,7 +14,7 @@ menu:-
 verify(exit):-!.
 verify(1):-question,!.
 
-question:-write('Is the movie you are thinking about, a 90s movie?'), read(Year),
+question:-writeln('Is the movie you are thinking about, a 90s movie?'), read(Year),
   Year = y, year(_,Year<2000,_,_,_),
 	Year = n, write('Is the movie you are thinking about, a 00s movie?'), read(Year2),
   Year2 = y, year(_,between(2010, 2000, Year),_,_,_),
@@ -23,7 +23,7 @@ question:-write('Is the movie you are thinking about, a 90s movie?'), read(Year)
   Year3 = n, write('I cannot guess what you are thinking. You won!'),
 	question_2,!.
 
-question_2:-write('Is the movie you are thinking about, an action movie?'), read(Genre),
+question_2:-writeln('Is the movie you are thinking about, an action movie?'), read(Genre),
   Genre = y, genre(_,_,action,_,_),
   Genre = n, write('Is the movie you are thinking about, a drama movie?'), read(Genre2),
   Genre2 = y, genre(_,_,drama,_,_),
@@ -34,7 +34,7 @@ question_2:-write('Is the movie you are thinking about, an action movie?'), read
   Genre4 = n, write('I cannot guess what you are thinking. You won!'),
   question_3,!.
 
-question_3:-write('Is the movie you are thinking about between 10 first blockbusters?'), read(Ranking),
+question_3:-writeln('Is the movie you are thinking about between 10 first blockbusters?'), read(Ranking),
   Ranking = y, ranking(_,_,_,_,Ranking < 10),
   Ranking = n, write('Is the movie you are thinking about between 20 first blockbusters?'), read(Ranking2),
   Ranking2 = y, ranking(_,_,_,_,Ranking < 20),
