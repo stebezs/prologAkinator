@@ -1,3 +1,19 @@
+menu:-
+  write('---------------------------'), nl,
+  write('------Akinator Movies------'), nl,
+  write('---------------------------'), nl,
+  write(' '), nl,
+  write('Enter 1 to start'), nl,
+  write('Enter "exit" to exit'), nl,
+  write(' '), nl,
+  read(X),
+  write(X),
+  verify(X),
+  X==exit,!,nl,nl,writeln('Bye!'),nl.
+
+verify(exit):-!.
+verify(1):-question,!.
+
 question:-write('Is the movie you are thinking about, a 90s movie?'), read(Year),
   Year = y, year(_,Year<2000,_,_,_),
 	Year = n, write('Is the movie you are thinking about, a 00s movie?'), read(Year2),
