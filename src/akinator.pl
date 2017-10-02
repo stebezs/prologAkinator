@@ -2,10 +2,21 @@
 % Only one or more variables that appear on a clause that appears only once
 :- style_check(-singleton).
 
+<<<<<<< HEAD
+:- dynamic movie/5.
+:- dynamic result/1.
+:- dynamic foundYear/1.
+
+% movie(Name, Year, Genre, [Actors], Position)
+movie('Avatar', 2009, action, ['Sam Worthington', 'Zoe Saldana', 'Sigourney Weaver'], 1).
+movie('Titanic', 1997, drama, ['Leonardo DiCaprio', 'Kate Winslet', 'Billy Zane'], 2).
+movie('Star Wars: The Force Awakens', 2015, action, ['Harrison Ford', 'Mark Hamill', 'Carrie Fisher'], 3)
+=======
 % movie(Name, Year, Genre, [Actors], Position)
 movie('Avatar', 2009, action, ['Sam Worthington', 'Zoe Saldana', 'Sigourney Weaver'], 1).
 movie('Titanic', 1997, drama, ['Leonardo DiCaprio', 'Kate Winslet', 'Billy Zane'], 2).
 movie('Star Wars: The Force Awakens', 2015, action, ['Harrison Ford', 'Mark Hamill', 'Carrie Fisher'], 3).
+>>>>>>> 125b157ad09ae304b6de848e922a074a4296f8db
 movie('Jurassic World', 2015, action, ['Chris Pratt', 'Bryce Dallas Howard', '	Irrfan Khan'], 4).
 movie('The Avengers ', 2012, action, ['Robert Downey Jr.', 'Chris Evans', ' Scarlett Johansson'], 5).
 movie('Furious 7 ', 2009, action, ['Vin Diesel', 'Paul Walker', 'Jason Statham'], 6).
@@ -29,6 +40,54 @@ movie('Pirates of the Caribbean: On Stranger Tides', 2011, action, ['Johnny Depp
 movie('Jurassic Park', 1993, fantasy, ['Sam Neill', 'Laura Dern', 'Jeff Goldblum'], 24).
 movie('Finding Dory', 2016, animation, ['Ellen DeGeneres', 'Albert Brooks', 'Hayden Rolence'], 25).
 
+<<<<<<< HEAD
+% This rule can pick a random element from a list
+choose([], []). /* Empty case */
+choose(List, Result) :-
+        length(List, Length),
+        random(0, Length, Index),
+        nth0(Index, List, Result).
+
+remove_year(Year):-
+  retractall(movie(_, Year, _, _, _)).
+
+update_results(Result) :-
+  retractall(result(_)),
+  assert(result(Result)).
+
+ask_year :-
+  movie(_, Year, _, _, _),
+  format('Your movie is from ~w~n', [Year]),
+  read(Anwser), nl,
+  ( Anwser == y ->
+      write("Got your year!"), nl,
+      findall(Year, movie(_, Year, _, _, _), FoundList),
+      update_results(FoundList),
+      assert(foundYear(Year)),
+      !
+      ; % else
+      remove_year(Year),
+      ask_year
+  ).
+
+ask_genre :-
+  movie(_, _, Genre, _, _),
+  format('Your movie is a(an) ~w~n', [Genre]),
+  read(Anwser), nl,
+  ( Anwser == y ->
+    write("Got your genre!"), nl,
+      assert(foundYear(Year)),
+      !
+      ; % else
+      remove_year(Year),
+      ask_year
+  ).
+
+show_all :-
+  listing(movie).
+
+=======
+>>>>>>> 125b157ad09ae304b6de848e922a074a4296f8db
 %Filtering by year
 year(Year):-year(_, Year,_,_,_).
 year_genre(Year,Genre):-year(_, Year,Genre,_,_).
@@ -46,6 +105,8 @@ actor(_,_,_,Actor,_).
 actor_year(_,Year,_,Actor,_).
 actor_genre(_,_,Genre,Actor,_).
 actor_ranking(_,_,_,Actor,Ranking).
+<<<<<<< HEAD
+=======
 
 movie(2009,action).
 movie(1997,drama).
@@ -99,3 +160,4 @@ movie(['Felicity Jones', 'Diego Luna', 'Ben Mendelsohn'], 22).
 movie(['Johnny Depp', 'Penélope Cruz', 'Ian McShane'], 23).
 movie(['Sam Neill', 'Laura Dern', 'Jeff Goldblum'], 24).
 movie(['Ellen DeGeneres', 'Albert Brooks', 'Hayden Rolence'], 25).
+>>>>>>> 125b157ad09ae304b6de848e922a074a4296f8db
